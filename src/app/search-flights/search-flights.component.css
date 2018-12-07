@@ -1,0 +1,25 @@
+.container-margin {
+    margin-top: 2.5%
+}
+
+form {
+    margin: 2.5%;
+}
+
+.div-box {
+    /* border: 1px solid; */
+    /* box-sizing: border-box; */
+    border-radius: 7px;
+    background-color: #fff;
+    box-shadow: 0 0 0 0.5px rgba(0,0,0,0.15),
+         0 2px 3px 0 rgba(0,0,0,0.1);
+}
+
+.radio-margin {
+    margin: 2.5%
+}
+
+.input-inline {
+    display: inline-flex;
+}
+
