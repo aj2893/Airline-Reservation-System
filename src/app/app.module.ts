@@ -18,12 +18,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { MatSortModule } from '@angular/material/sort';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { FlightListGuard } from './flight-list/flight-list.guard';
+import { ReservationDetailsGuard } from './reservation-details/reservation-details.guard';
+import { ConfirmationGuard } from './confirmation/confirmation.guard';
 
 const routes: Routes = [
   { path: 'search', component: SearchFlightsComponent },
-  { path: 'flight-list', component: FlightListComponent },
-  { path: 'reserve/:id', component: ReservationDetailsComponent },
-  { path: 'confirmation', component: ConfirmationComponent }
+  { path: 'flight-list', canActivate: [ FlightListGuard ] , component: FlightListComponent },
+  { path: 'reserve', canActivate: [ ReservationDetailsGuard ], component: ReservationDetailsComponent },
+  { path: 'reserve/:id', canActivate: [ ReservationDetailsGuard ], component: ReservationDetailsComponent },
+  { path: 'confirmation', canActivate: [ ConfirmationGuard ], component: ConfirmationComponent }
 ];
 
 export class AppRoutingModule {}
