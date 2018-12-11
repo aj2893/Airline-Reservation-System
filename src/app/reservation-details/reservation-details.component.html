@@ -1,0 +1,84 @@
+<p>
+  reservation-details works!
+</p>
+<div class="container container-margin">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <mat-card>
+          <mat-card-title>Journey Planner</mat-card-title>
+          <mat-card-content>
+            {{fromPlace}} - {{toPlace}}
+            <div>
+              Travel Date - {{journeyDate}}
+            </div>
+            <div>
+              Departure - {{flight.journeyStartTime}}
+            </div>
+            <div>
+              Arrival - {{flight.destinationReachTime}}
+            </div>
+            <div>
+              Flight Duration - {{flight.flightDuration}}
+            </div>
+          </mat-card-content>
+          <mat-card-actions  class="clearfix">
+            <button class="btn btn-primary btn-sm btn-align" [routerLink] = "['/search']">Re-Plan Journey</button>
+            <button class="btn btn-primary btn-sm btn-align" [routerLink] = "['/flight-list']">Book Another Flight</button>
+          </mat-card-actions>
+        </mat-card>
+
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <div class="form-group">
+              <label for="travellerDetails"><h3>Traveller Details</h3></label>
+          </div>
+          <div class="input-inline">
+            <div class="form-group  input-padding">
+              <label for="firstName">First Name:</label>
+              <input
+              type="text" 
+              class="form-control" 
+              id="firstName" 
+              ngModel
+              name="firstName"
+              required>
+            </div>
+            <div class="form-group input-padding">
+              <label for="lastName">Last Name:</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="lastName" 
+              ngModel
+              name="lastName"
+              required>
+            </div>
+          </div>
+          <div class="radio input-inline" *ngFor = "let gender of genders">
+            <label>
+              <input type="radio"
+              name="gender"
+              ngModel
+              [value]="gender">
+              {{gender}}
+            </label>
+          </div>
+          <div class="form-group">
+              <label for="gender" class="label-padding">Mobile No:</label>
+              <input 
+              type="number" 
+              class="form-control col-md-7" 
+              id="mobno" 
+              ngModel
+              name="mobno"
+              required>
+          </div>
+          <button
+          class="btn btn-primary" 
+          [disabled]="!f.valid">
+          Search
+          </button>
+        </form>
+      </div>
+    </div>
+</div>
+    

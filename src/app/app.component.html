@@ -12,5 +12,26 @@
     [ngStyle]="{backgroundColor: rla1.isActive ? 'lightblue': 'transparent'}">
     Search Flights
     </a>
+    <a mat-tab-link
+    [routerLink]="['/flight-list']"
+    routerLinkActive #rla2="routerLinkActive"
+    [active]="rla2.isActive"
+    [ngStyle]="{backgroundColor: rla2.isActive ? 'lightblue': 'transparent'}">
+    Flight List
+    </a>
+    <a mat-tab-link
+    [routerLink]="['/reserve']"
+    routerLinkActive #rla3="routerLinkActive"
+    [active]="rla3.isActive"
+    [ngStyle]="{backgroundColor: rla3.isActive ? 'lightblue': 'transparent'}">
+    Reserve Flight
+    </a>
+    <a mat-tab-link
+    [routerLink]="['/confirmation']"
+    routerLinkActive #rla4="routerLinkActive"
+    [active]="rla4.isActive"
+    [ngStyle]="{backgroundColor: rla4.isActive ? 'lightblue': 'transparent'}">
+    Reserve Flight
+    </a>
 </nav>
 <router-outlet></router-outlet>

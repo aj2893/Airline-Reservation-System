@@ -23,3 +23,10 @@ form {
     display: inline-flex;
 }
 
+.btn-align{
+    float: right;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }

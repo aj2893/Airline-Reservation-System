@@ -3,24 +3,79 @@
     search-flights works!
   </p> -->
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 div-box">
-        <form>
+    <div class="col-xs-12 col-sm-12 col-md-6 div-box">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
             <div class="form-group">
-              <label class="radio-inline radio-margin"><input type="radio" name="one_way" checked>One Way</label>
-              <label class="radio-inline radio-margin"><input type="radio" name="round_trip">Round Trip</label>
+              <input 
+              id = "one_way"
+              type="radio" 
+              name="radiogroup" 
+              checked 
+              (click)="showReturnDate('N')"> One Way
+              <input 
+              type="radio"
+              id= "round_trip" 
+              name="radiogroup" 
+              (click)="showReturnDate('Y')"> Round Trip
             </div>
             <div class="input-inline">
-              <div class="form-group col-md-5">
+              <div class="form-group">
                 <label for="from">From:</label>
-                <input type="text" class="form-control" id="from">
+                <input
+                type="text" 
+                class="form-control" 
+                id="from" 
+                ngModel
+                name="journeyPlace1"
+                required>
               </div>
-              <button class="btn btn-link">&#8644;</button>
-              <div class="form-group col-md-5">
+              <button type="button" class="btn btn-link" (click)="switchPlaces()">&#8644;</button>
+              <div class="form-group">
                 <label for="to">To:</label>
-                <input type="text" class="form-control" id="to">
+                <input 
+                type="text" 
+                class="form-control" 
+                id="to" 
+                ngModel
+                name="journeyPlace2"
+                required>
               </div>
+            </div>
+            <div>
+              <mat-form-field>
+                <input 
+                matInput 
+                [matDatepicker]="picker1" 
+                placeholder="Journey Start Date" 
+                ngModel
+                name= "journeyDate1"
+                required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+          <div *ngIf="showReturnDateField">
+              <mat-form-field>
+                <input 
+                matInput 
+                [matDatepicker]="picker2" 
+                placeholder="Return Journey Date" 
+                ngModel
+                name= "journeyDate2"
+                required>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="clearfix">
+              <button
+              class="btn btn-primary btn-align" 
+              [disabled]="!f.valid">
+              Search
+            </button>
             </div>
         </form>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>

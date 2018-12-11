@@ -1,0 +1,40 @@
+[{  
+    "id": 1,
+    "fromPlace": "Bombay",
+    "toPlace": "Delhi",
+    "travelDate": "12/12/2018",
+    "journeyStartTime": "13:30",
+    "destinationReachTime": "15:45",
+    "flightDuration": "02-15",
+    "amount": 3784
+},
+{
+    "id": 2,
+    "fromPlace": "Bombay",
+    "toPlace": "Delhi",
+    "travelDate": "12/12/2018",
+    "journeyStartTime": "09:30",
+    "destinationReachTime": "11:55",
+    "flightDuration": "02-25",
+    "amount": 3785
+},
+{
+    "id": 3,
+    "fromPlace": "Bombay",
+    "toPlace": "Delhi",
+    "travelDate": "12/12/2018",
+    "journeyStartTime": "19:30",
+    "destinationReachTime": "22:05",
+    "flightDuration": "02-35",
+    "amount": 3786
+},
+{
+    "id": 4,
+    "fromPlace": "Bombay",
+    "toPlace": "Delhi",
+    "travelDate": "12/12/2018",
+    "journeyStartTime": "00:30",
+    "destinationReachTime": "2:30",
+    "flightDuration": "02-00",
+    "amount": 3787
+}]

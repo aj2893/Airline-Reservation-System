@@ -1,0 +1,16 @@
+.btn-align{
+    float: right;
+    margin: 5px;
+}
+
+.input-inline {
+    display: inline-flex;
+}
+
+.input-padding {
+    padding-right: 10px;
+}
+
+.label-padding {
+    margin-right: 10px;
+}

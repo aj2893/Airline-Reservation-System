@@ -1,0 +1,45 @@
+<!-- <p>
+  flight-list works!
+</p> -->
+<div class="container container-margin">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <mat-card>
+          <mat-card-title>Journey Planner</mat-card-title>
+          <mat-card-content>
+            {{fromPlace}} - {{toPlace}} on {{journeyDate}}
+          </mat-card-content>
+          <mat-card-actions  class="clearfix">
+            <button class="btn btn-primary btn-sm btn-align" [routerLink] = "['/search']">Re-Plan Journey</button>
+          </mat-card-actions>
+        </mat-card>
+        <table 
+        class="table table-hover" 
+        *ngIf = "flights && flights.length; else elsePath"
+        matSort (matSortChange)="sortData($event)">
+          <thead>
+            <tr>
+              <th mat-sort-header="departure">Departure</th>
+              <th mat-sort-header="arrival">Arrival</th>
+              <th mat-sort-header="duration">Duration(hh-mm)</th>
+              <th mat-sort-header="price">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let flight of flights">
+              <td>{{flight.journeyStartTime}}</td>
+              <td>{{flight.destinationReachTime}}</td>
+              <td>{{flight.flightDuration}}</td>
+              <td>{{flight.amount| currency:'INR'}}</td>
+              <td>
+                <button class="btn btn-primary" [routerLink] = "['/reserve',flight.id]">Book</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elsePath>
+          <h4 class="elsePathStyle">We're Sorry, No flights available for this route on {{journeyDate}} date</h4>
+        </ng-template>
+    </div>
+  </div>
+</div>
